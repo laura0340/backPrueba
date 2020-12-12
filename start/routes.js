@@ -20,3 +20,4 @@ const Route = use('Route')
 
 Route.post('registrar', 'UserController.store');
 Route.post('login', 'UserController.login');
+Route.get('getUsers', 'UserController.index').middleware('auth');
