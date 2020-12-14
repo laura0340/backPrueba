@@ -3,7 +3,7 @@
 This is the boilerplate for creating an API server in AdonisJs.
 ### Install adonis
 
-Run the following command to run startup migrations.
+Run the following command to install adonis.
 
 ```js
 npm i -g @adonisjs/cli
