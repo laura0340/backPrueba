@@ -4,11 +4,11 @@ const User = use('App/Models/User');
 class UserController {
 
     async index({ auth }) {
-        const user = await auth.getUser();
-        if (!user) {
-            return { mesaje: 'no se autenticó el usuario'};
-        }
-        console.log('usuario', user);
+        // const user = await auth.getUser();
+        // if (!user) {
+        //     return { mesaje: 'no se autenticó el usuario' };
+        // }
+        // console.log('usuario', user);
         return await User.all();
     }
 
@@ -16,6 +16,14 @@ class UserController {
         const { email, password } = request.all();
         const token = await auth.attempt(email, password);
         return token;
+
+    }
+
+    async destroy({ request, params }) {
+        const { id } = params;
+        const user = await User.find(id);
+        await user.delete();
+        return true;
     }
 
     async store({ request }) {
